@@ -1,21 +1,26 @@
 # TS-GraphQL-Server
 
-## Overview
-Apollo Server implementation with complex resolvers.
+A TypeScript GraphQL server using Express and the reference `graphql` library.
 
-Developed as part of my portfolio showcasing 5 years of full-stack engineering experience. This project demonstrates strict TypeScript configuration, clean component architecture, and modern Node.js practices.
-
-## Quick Start (1-Click Build)
+## Quick Start
 
 ```bash
-git clone https://github.com/skylerblue333/TS-GraphQL-Server.git
-cd TS-GraphQL-Server
-npm install
-npm run build
-npm start
+npm ci
+npm test
+npm run build && npm start
 ```
 
-## Features
-- Strict Type Safety
-- Clean Architecture
-- Production-ready configuration
+## Docker
+
+```bash
+docker build -t ts-graphql-server .
+docker run -p 3000:3000 ts-graphql-server
+```
+
+## Query Example
+
+```bash
+curl -X POST http://localhost:3000/graphql \
+  -H 'Content-Type: application/json' \
+  -d '{"query": "{ user(id: \"1\") { name email } }"}'
+```
